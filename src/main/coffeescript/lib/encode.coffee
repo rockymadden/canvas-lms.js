@@ -1,5 +1,4 @@
 lazy = require('lazy.js')
-truthy = require('truthy.js')
 
 encode =
 	rfc3986: (string) ->
