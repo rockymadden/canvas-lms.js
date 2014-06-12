@@ -50,8 +50,8 @@ describe 'Http.post()', ->
 
 		http.post(((i) -> "/api/v1/accounts/#{ i }/users"), 1, create)
 			.then((response) -> response.fold(
-					(l) -> should.fail(l)
-					(r) -> r.id.should.be.above(0)
+				(l) -> should.fail(l)
+				(r) -> r.id.should.be.above(0)
 			)).done(-> done())
 
 describe 'Http.put()', ->
