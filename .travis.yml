@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - "0.10"
+script:
+  - "grunt test"
+env:
+  global:
+    - secure: "ImdX0V/gpdPmmkktYi2yNR4t+KLaa8B6q6uXvSmoQtfKy96OuYySUwDHpttlN4+HTVS38qF5tt9J2BLROXSyC2c/ssEpKDATuHzGJy7/pLuWLAUlIlIWCA8vGLa46TtM7fceEXz7bLEy6cjcJ9Kj9oz91fVGkjckQ0PUqHLTO5k="
+    - secure: "hvR0z/YWhvbmmxTUt36aN9xF16yIlV0rrzDtYnrpUdzJ9TZo43OZEfiG4tDpdsQfnYHpzGy5HtCSU9TwBhDy0ZNjA21vqhstS1OUJIK1gYEakE0y+sh0ujWhdVTHMTQUF7mfVrGkfIywL3d0dod7rUGUkDWXJDSVA0AAQHf1uqw="

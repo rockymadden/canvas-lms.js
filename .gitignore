@@ -1,0 +1,6 @@
+# Build ignores.
+target
+
+# Project ignores.
+node_modules
+*.config.json
