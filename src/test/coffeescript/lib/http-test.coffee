@@ -13,14 +13,14 @@ describe 'Http.delete()', ->
 			pseudonym: unique_id: random() + '@example.com'
 
 		http.post(((i) -> "/api/v1/accounts/#{ i }/users"), 1, create)
-			.then((response) ->
-				id = response.fold(
+			.then((_) ->
+				id = _.fold(
 					(l) -> -1
 					(r) -> r.id
 				)
 
 				http.delete(((i) -> "/api/v1/accounts/#{ i.account_id }/users/#{ i.id }"), {account_id: 1, id: id})
-			).then((response) -> response.fold(
+			).then((_) -> _.fold(
 				(l) -> should.fail(l)
 				(r) -> r.id.should.be.above(0)
 			)).done(-> done())
@@ -29,14 +29,14 @@ describe 'Http.get()', ->
 
 	it 'should work with multiple records', (done) ->
 		http.get(-> "/api/v1/accounts")
-			.then((response) -> response.fold(
+			.then((_) -> _.fold(
 				(l) -> should.fail(l)
 				(r) -> r[0].id.should.be.above(0)
 			)).done(-> done())
 
 	it 'should work with a single record', (done) ->
 		http.get(((i) -> "/api/v1/accounts/#{ i.id }"), id: 1)
-			.then((response) -> response.fold(
+			.then((_) -> _.fold(
 				(l) -> should.fail(l)
 				(r) -> r.id.should.be.above(0)
 			)).done(-> done())
@@ -49,7 +49,7 @@ describe 'Http.post()', ->
 			pseudonym: unique_id: random() + '@example.com'
 
 		http.post(((i) -> "/api/v1/accounts/#{ i }/users"), 1, create)
-			.then((response) -> response.fold(
+			.then((_) -> _.fold(
 				(l) -> should.fail(l)
 				(r) -> r.id.should.be.above(0)
 			)).done(-> done())
@@ -63,14 +63,14 @@ describe 'Http.put()', ->
 		update = user: name: 'http update'
 
 		http.post(((i) -> "/api/v1/accounts/#{ i }/users"), 1, create)
-			.then((response) ->
-				id = response.fold(
+			.then((_) ->
+				id = _.fold(
 					(l) -> -1
 					(r) -> r.id
 				)
 
 				http.put(((i) -> "/api/v1/users/#{ i }"), id, update)
-			).then((response) -> response.fold(
+			).then((_) -> _.fold(
 				(l) -> should.fail(l)
 				(r) -> r.name.should.equal('http update')
 			)).done(-> done())
