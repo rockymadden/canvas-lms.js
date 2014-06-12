@@ -1,11 +1,9 @@
 bilby = require('bilby')
-Http = require('./http')
+httpClosure = require('./http')
 
-client = class Client
-	constructor: (@baseUrl, @token) ->
-
+clientClosure = (@baseUrl, @token) ->
 	withSession: (f) ->
-		http = new Http(@baseUrl, @token)
+		http = httpClosure(baseUrl, token)
 
 		f(Object.freeze(
 			# Account functions.
@@ -45,4 +43,4 @@ client = class Client
 			putUsersMerge: bilby.bind(http.put)(http, (i) -> "/api/v1/users/#{ i.user_id }/merge_into/#{ i.destination_user_id }")
 		))
 
-module.exports = Object.freeze(client)
+module.exports = Object.freeze(clientClosure)

@@ -1,8 +1,8 @@
-Http = require('./http')
+httpClosure = require('./http')
 lazy = require('lazy.js')
 should = require('should')
 
-http = new Http(process.env.CANVASLMSJS_BASEURL, process.env.CANVASLMSJS_TOKEN)
+http = httpClosure(process.env.CANVASLMSJS_BASEURL, process.env.CANVASLMSJS_TOKEN)
 random = -> lazy.generate((-> Math.floor(Math.random() * 10))).take(32).toString('')
 
 describe 'Http.delete()', ->

@@ -1,9 +1,11 @@
 #canvas-lms.js [![Build Status](https://travis-ci.org/rockymadden/canvas-lms.js.png?branch=master)](http://travis-ci.org/rockymadden/canvas-lms.js)
 Functional Node wrapper for the Canvas LMS REST API. Experience with functional programming concepts (e.g. monads,
 applicative functors) and future/promise constructs is recommended. All Canvas LMS REST functions are supported via
-the lower-level http class. Many functions are also supported via the higher-level
-[client class](https://github.com/rockymadden/canvas-lms.js/tree/master/src/main/coffeescript/lib/client.coffee),
-which makes interaction with Canvas as easy as possible. For example: `canvas.getUser(1)`
+the lower-level
+[http closure](https://github.com/rockymadden/canvas-lms.js/blob/master/src/main/coffeescript/lib/http.coffee). Many
+functions are also supported via the higher-level
+[client closure](https://github.com/rockymadden/canvas-lms.js/tree/master/src/main/coffeescript/lib/client.coffee),
+which makes interaction with Canvas as easy as possible. For example: `session.getUser(1)`
 
 ## Depending Upon
 The project is available on the [Node Packaged Modules registry](https://npmjs.org/package/canvas-lms.js). Add the
@@ -18,10 +20,12 @@ dependency in your package.json file:
 ## Usage
 Create a user, update user, delete user, and then end session:
 ```coffeescript
+client = canvas.client('https://example.com', 'token')
 create =
 	user: name: 'create user'
 	pseudonym: unique_id: 'user@example.com'
-update = user: name: 'update user'
+update =
+	user: name: 'update user'
 
 client.withSession((session) ->
 	session.postUser(1, create)
