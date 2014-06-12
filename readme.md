@@ -25,7 +25,7 @@ update = user: name: 'update user'
 
 client.withSession((session) ->
 	session.postUser(1, create)
-		.then((_) -> _.fold((-> -1), ((r) -> r.id)))
+		.then((response) -> response.fold((-> -1), ((r) -> r.id)))
 		.then((id) -> session.putUser(id, update); id)
 		.then((id) -> session.deleteUser({account_id: 1, user_id: id}))
 		.done()
