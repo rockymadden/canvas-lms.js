@@ -6,19 +6,20 @@ qio = require('q-io/http')
 truthy = require('truthy.js')
 
 http =
-	parse: (response) ->
-		if not truthy.bool.lengthy(response)
-			bilby.left('Expected a lengthy response.')
-		else
+	parse: (response) -> truthy.eth.lengthy(response).fold(
+		(-> bilby.left('Expected a lengthy response.'))
+		((_) ->
 			try
-				json = JSON.parse(response)
+				e = truthy.eitherize((j) => (truthy.bool.objecty(j) and j.hasOwnProperty('errors')))
 
-				if truthy.bool.objecty(json) and json.hasOwnProperty('errors')
-					bilby.left(json.errors[0]['message'])
-				else
-					bilby.right(json)
+				e(JSON.parse(_)).fold(
+					((r) -> bilby.right(r))
+					((l) -> bilby.left(l.errors[0]['message']))
+				)
 			catch
 				bilby.left('Expected a JSON based response.')
+		)
+	)
 
 	querystring: (query) -> truthy.opt.lengthy(query).map((_) -> '?' + encode.url(_)).getOrElse('')
 
