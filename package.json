@@ -8,7 +8,7 @@
 		"q-io": "1.11.x",
 		"truthy.js": "0.6.x"
 	},
-	"description": "Functional Node wrapper for the Canvas LMS REST API.",
+	"description": "Functional Node wrapper for the open source Canvas LMS REST API.",
 	"devDependencies": {
 		"coffee-script": "1.7.x",
 		"grunt": "0.4.x",
