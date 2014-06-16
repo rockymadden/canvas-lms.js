@@ -37,8 +37,7 @@ client.withSession((canvas) ->
 )
 ```
 
-> <sub>__Note:__ The client assumes a manually generated token. Thus, there is no session clean up needed (e.g. logout).</sub>
-
+> <sub>__Note:__ Client uses a pre-generated token. Thus, there is no session clean up needed (e.g. logout).</sub>
 
 ## License
 ```
