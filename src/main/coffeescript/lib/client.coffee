@@ -78,6 +78,7 @@ clientClosure = (@baseUrl, @token) ->
 			getUserPageViews: bilby.bind(http.get)(http, (i) -> "/api/v1/users/#{ i.user_id || i }/page_views")
 			getUserProfile: bilby.bind(http.get)(http, (i) -> "/api/v1/users/#{ i.user_id || i }/profile")
 			getUserSettings: bilby.bind(http.get)(http, (i) -> "/api/v1/users/#{ i.user_id || i }/settings")
+			getUsers: bilby.bind(http.get)(http, (i) -> "/api/v1/accounts/#{ i.account_id || i }/users")
 			postUser: bilby.bind(http.post)(http, (i) -> "/api/v1/accounts/#{ i.account_id || i }/users")
 			postUserMigration: bilby.bind(http.post)(http, (i) -> "/api/v1/users/#{ i.user_id || i }/content_migrations")
 			# TODO: postUserFile
