@@ -3,7 +3,7 @@ Functional Node wrapper for the Canvas LMS REST API. All Canvas LMS REST functio
 [http closure](https://github.com/rockymadden/canvas-lms.js/blob/master/src/main/coffeescript/lib/http.coffee). Many
 functions are also supported via the higher-level
 [client closure](https://github.com/rockymadden/canvas-lms.js/tree/master/src/main/coffeescript/lib/client.coffee),
-which makes interaction with Canvas as easy as possible. For example: `session.getUser(1)`
+which makes interaction with Canvas as easy as possible. For example: `canvas.getUser(1)`
 
 ## Depending Upon
 The project is available on the [Node Packaged Modules registry](https://npmjs.org/package/canvas-lms.js). Add the
@@ -16,23 +16,27 @@ dependency in your package.json file:
 ```
 
 ## Usage
-Create a user, update user, delete user, and then end session:
+Create user, update user, delete user, and then end session:
 ```coffeescript
-client = canvas.client('https://example.com', 'token')
-create =
-	user: name: 'create user'
-	pseudonym: unique_id: 'user@example.com'
-update =
-	user: name: 'update user'
+client = require('canvas-lms.js').client('https://canvas.example.com', 'token')
 
-client.withSession((session) ->
-	session.postUser(1, create)
+client.withSession((canvas) ->
+	create =
+		user: name: 'create user'
+		pseudonym: unique_id: 'user@example.com'
+	update =
+		user: name: 'update user'
+
+	canvas.postUser(1, create)
 		.then((response) -> response.fold((-> -1), ((r) -> r.id)))
-		.then((id) -> session.putUser(id, update); id)
-		.then((id) -> session.deleteUser({account_id: 1, user_id: id}))
+		.then((id) -> canvas.putUser(id, update); id)
+		.then((id) -> canvas.deleteUser({account_id: 1, user_id: id}))
 		.done()
 )
 ```
+
+> <sub>__Note:__ The client assumes a manually generated token. Thus, there is no session clean up needed (e.g. logout).</sub>
+
 
 ## License
 ```
