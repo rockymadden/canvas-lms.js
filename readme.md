@@ -5,7 +5,7 @@ REST functions are also supported via the higher-level
 [client closure](https://github.com/rockymadden/canvas-lms.js/tree/master/src/main/coffeescript/lib/client.coffee),
 which makes interaction with Canvas as easy as possible.
 
-> <sub>__client vs http:__ `client.getAccount(1)` vs `http.get(((i) -> "/api/v1/accounts/#{ i.account_id || i }"), 1)`</sub>
+> <sub>__client vs http:__ `client.getAccount(1)` vs `http.get(((i) -> "/api/v1/accounts/#{ i }"), 1)`</sub>
 
 ## Depending Upon
 The project is available on the [Node Packaged Modules registry](https://npmjs.org/package/canvas-lms.js). Add the
