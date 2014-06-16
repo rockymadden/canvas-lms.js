@@ -24,7 +24,7 @@ http =
 	querystring: (query) -> truthy.opt.lengthy(query).map((_) -> '?' + encode.url(_)).getOrElse('')
 
 httpClosure = (@baseUrl, @token) ->
-	agent: if baseUrl.indexOf('https:') == 0 then new Agent.Secure() else new Agent()
+	agent: new Agent.Secure()
 
 	delete: (path, interpolate, query) -> @withoutBody('delete')(path(interpolate), query)
 
