@@ -5,7 +5,7 @@ should = require('should')
 http = httpClosure(process.env.CANVASLMSJS_BASEURL, process.env.CANVASLMSJS_TOKEN)
 random = -> lazy.generate((-> Math.floor(Math.random() * 10))).take(32).toString('')
 
-describe 'Http.delete()', ->
+describe 'http.delete()', ->
 
 	it 'should work with a single record', (done) ->
 		create =
@@ -25,7 +25,7 @@ describe 'Http.delete()', ->
 				(r) -> r.id.should.be.above(0)
 			)).done(-> done())
 
-describe 'Http.get()', ->
+describe 'http.get()', ->
 
 	it 'should work with multiple records', (done) ->
 		http.get(-> "/api/v1/accounts")
@@ -41,7 +41,7 @@ describe 'Http.get()', ->
 				(r) -> r.id.should.be.above(0)
 			)).done(-> done())
 
-describe 'Http.post()', ->
+describe 'http.post()', ->
 
 	it 'should work with a single record', (done) ->
 		create =
@@ -54,7 +54,7 @@ describe 'Http.post()', ->
 				(r) -> r.id.should.be.above(0)
 			)).done(-> done())
 
-describe 'Http.put()', ->
+describe 'http.put()', ->
 
 	it 'should work with a single record', (done) ->
 		create =

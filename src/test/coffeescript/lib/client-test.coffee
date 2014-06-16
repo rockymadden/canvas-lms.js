@@ -5,7 +5,7 @@ should = require('should')
 client = clientClosure(process.env.CANVASLMSJS_BASEURL, process.env.CANVASLMSJS_TOKEN)
 random = -> lazy.generate((-> Math.floor(Math.random() * 10))).take(32).toString('')
 
-describe 'Client.withSession()', ->
+describe 'client.withSession()', ->
 
 	it 'should work', (done) ->
 		client.withSession((session) ->
