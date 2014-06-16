@@ -35,7 +35,7 @@ describe 'http.get()', ->
 			)).done(-> done())
 
 	it 'should work with a single record', (done) ->
-		http.get(((i) -> "/api/v1/accounts/#{ i.id }"), id: 1)
+		http.get(((i) -> "/api/v1/accounts/#{ i }"), 1)
 			.then((_) -> _.fold(
 				(l) -> should.fail(l)
 				(r) -> r.id.should.be.above(0)
