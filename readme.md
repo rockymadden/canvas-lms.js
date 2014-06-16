@@ -7,14 +7,15 @@ which makes interaction with Canvas as easy as possible.
 
 > <sub>__Example:__ `client.getAccount(1)` vs `http.get(((i) -> "/api/v1/accounts/#{ i }"), 1)`</sub>
 
-## Knowledge Needed
-Experience with basic functional programming concepts (e.g. monads, applicative functors) and future/promise constructs
-is required. Two third-party libraries, in particular, are leveraged heavily throughout:
+## Grokking
+Experience with basic category theory (e.g. monads and applicative functors), functional programming concepts, and
+future/promise constructs is highly recommended. Additionally, two third-party libraries are leveraged heavily, which
+you should familiarize yourself with:
 
 * [bilby.js](https://github.com/puffnfresh/bilby.js): Serious functional programming library for JavaScript
 * [q](https://github.com/kriskowal/q): A tool for making and composing asynchronous promises in JavaScript
 
-## Depending Upon
+## Depending
 The project is available on the [Node Packaged Modules registry](https://npmjs.org/package/canvas-lms.js). Add the
 dependency in your package.json file:
 
@@ -24,7 +25,7 @@ dependency in your package.json file:
 }
 ```
 
-## Usage
+## Using
 Create user, update user, delete user, and then end session:
 ```coffeescript
 client = require('canvas-lms.js').client('https://canvas.example.com', 'token')
