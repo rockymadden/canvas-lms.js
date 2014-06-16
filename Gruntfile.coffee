@@ -23,8 +23,8 @@ module.exports = (grunt) ->
 			options:
 				files: ['target/**/*-test.js']
 				require: ['should']
-				slow: 8000
-				timeout: 16000
+				slow: 2000
+				timeout: 8000
 			test: options: reporter: 'spec'
 
 	grunt.loadNpmTasks('grunt-contrib-coffee')
