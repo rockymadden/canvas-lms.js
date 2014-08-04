@@ -21,7 +21,7 @@ dependency in your package.json file:
 
 ```javascript
 "dependencies": {
-  "canvas-lms.js": "0.1.x"
+  "canvas-lms.js": "0.2.x"
 }
 ```
 
@@ -51,7 +51,7 @@ client.withSession((canvas) ->
 ```
 The MIT License (MIT)
 
-Copyright (c) 2014 Rocky Madden (http://rockymadden.com/)
+Copyright (c) 2014 Rocky Madden (https://rockymadden.com/)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

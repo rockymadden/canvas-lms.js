@@ -1,5 +1,5 @@
 {
-  "author": "Rocky Madden (http://rockymadden.com/)",
+  "author": "Rocky Madden (https://rockymadden.com/)",
   "dependencies": {
     "bilby": "0.0.x",
     "keep-alive-agent": "0.0.x",
@@ -20,11 +20,11 @@
     "should": "4.0.x"
   },
   "engines": {"node": ">=0.10.0"},
-  "homepage": "http://rockymadden.com/canvas-lms.js/",
+  "homepage": "https://rockymadden.com/canvas-lms.js/",
   "keywords": ["canvas", "lms", "education", "edtech"],
   "main": "target/canvas-lms.js",
   "name": "canvas-lms.js",
   "repository": {"type": "git", "url": "git://github.com/rockymadden/canvas-lms.js.git"},
   "scripts": {"prepublish": "grunt"},
-  "version": "0.1.7"
+  "version": "0.2.0"
 }
