@@ -1,30 +1,30 @@
 {
-	"author": "Rocky Madden (http://rockymadden.com/)",
-	"dependencies": {
-		"bilby": "0.0.x",
-		"keep-alive-agent": "0.0.x",
-		"lazy.js": "0.3.x",
-		"q": "1.0.x",
-		"q-io": "1.11.x",
-		"truthy.js": "0.6.x"
-	},
-	"description": "Functional Node wrapper for the open source Canvas LMS REST API.",
-	"devDependencies": {
-		"coffee-script": "1.7.x",
-		"grunt": "0.4.x",
-		"grunt-cli": "0.1.x",
-		"grunt-contrib-coffee": "0.10.x",
-		"grunt-mocha-cov": "0.2.x",
-		"mocha": "1.20.x",
-		"mocha-term-cov-reporter": "0.2.x",
-		"should": "4.0.x"
-	},
-	"engines": {"node": ">=0.10.0"},
-	"homepage": "http://rockymadden.com/canvas-lms.js/",
-	"keywords": ["canvas", "lms", "education", "edtech"],
-	"main": "target/canvas-lms.js",
-	"name": "canvas-lms.js",
-	"repository": {"type": "git", "url": "git://github.com/rockymadden/canvas-lms.js.git"},
-	"scripts": {"prepublish": "grunt"},
-	"version": "0.1.7"
+  "author": "Rocky Madden (http://rockymadden.com/)",
+  "dependencies": {
+    "bilby": "0.0.x",
+    "keep-alive-agent": "0.0.x",
+    "lazy.js": "0.3.x",
+    "q": "1.0.x",
+    "q-io": "1.11.x",
+    "truthy.js": "0.6.x"
+  },
+  "description": "Functional Node wrapper for the open source Canvas LMS REST API.",
+  "devDependencies": {
+    "coffee-script": "1.7.x",
+    "grunt": "0.4.x",
+    "grunt-cli": "0.1.x",
+    "grunt-contrib-coffee": "0.10.x",
+    "grunt-mocha-cov": "0.2.x",
+    "mocha": "1.20.x",
+    "mocha-term-cov-reporter": "0.2.x",
+    "should": "4.0.x"
+  },
+  "engines": {"node": ">=0.10.0"},
+  "homepage": "http://rockymadden.com/canvas-lms.js/",
+  "keywords": ["canvas", "lms", "education", "edtech"],
+  "main": "target/canvas-lms.js",
+  "name": "canvas-lms.js",
+  "repository": {"type": "git", "url": "git://github.com/rockymadden/canvas-lms.js.git"},
+  "scripts": {"prepublish": "grunt"},
+  "version": "0.1.7"
 }

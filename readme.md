@@ -21,7 +21,7 @@ dependency in your package.json file:
 
 ```javascript
 "dependencies": {
-	"canvas-lms.js": "0.1.x"
+  "canvas-lms.js": "0.1.x"
 }
 ```
 
@@ -31,17 +31,17 @@ Create user, update user, delete user, and then end session:
 client = require('canvas-lms.js').client('https://canvas.example.com', 'token')
 
 client.withSession((canvas) ->
-	create =
-		user: name: 'create user'
-		pseudonym: unique_id: 'user@example.com'
-	update =
-		user: name: 'update user'
+  create =
+    user: name: 'create user'
+    pseudonym: unique_id: 'user@example.com'
+  update =
+    user: name: 'update user'
 
-	canvas.postUser(1, create)
-		.then((response) -> response.fold((-> -1), ((r) -> r.id)))
-		.then((id) -> canvas.putUser(id, update); id)
-		.then((id) -> canvas.deleteUser({account_id: 1, user_id: id}))
-		.done()
+  canvas.postUser(1, create)
+    .then((response) -> response.fold((-> -1), ((r) -> r.id)))
+    .then((id) -> canvas.putUser(id, update); id)
+    .then((id) -> canvas.deleteUser({account_id: 1, user_id: id}))
+    .done()
 )
 ```
 
