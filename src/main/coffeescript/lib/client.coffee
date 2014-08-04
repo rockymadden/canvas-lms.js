@@ -40,6 +40,7 @@ clientClosure = (@baseUrl, @token) ->
       getCourseUsers: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/users")
       postCourse: bilby.bind(http.post)(http, (i) -> "/api/v1/accounts/#{ i.account_id || i }/courses")
       postCourseEnrollment: bilby.bind(http.post)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/enrollments")
+      postCourseFile: bilby.bind(http.postUrlEncoded)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/files")
       postCourseMigration: bilby.bind(http.post)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/content_migrations")
       putCourse: bilby.bind(http.put)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }")
       putCourseMigration: bilby.bind(http.put)(http, (i) -> "/api/v1/courses/#{ i.course_id }/content_migrations/#{ i.migration_id }")
@@ -63,6 +64,7 @@ clientClosure = (@baseUrl, @token) ->
       getSelfStreamItems: bilby.bind(http.get)(http, (-> '/api/v1/users/self/activity_stream'), null)
       getSelfStreamItemsSummary: bilby.bind(http.get)(http, (-> '/api/v1/users/self/activity_stream/summary'), null)
       getSelfTodos: bilby.bind(http.get)(http, (-> '/api/v1/users/self/todo'), null)
+      postSelfFile: bilby.bind(http.postUrlEncoded)(http, (-> '/api/v1/users/self/files'), null)
 
       # User functions.
       deleteUser: bilby.bind(http.delete)(http, (i) -> "/api/v1/accounts/#{ i.account_id }/users/#{ i.user_id }")
@@ -81,7 +83,7 @@ clientClosure = (@baseUrl, @token) ->
       getUsers: bilby.bind(http.get)(http, (i) -> "/api/v1/accounts/#{ i.account_id || i }/users")
       postUser: bilby.bind(http.post)(http, (i) -> "/api/v1/accounts/#{ i.account_id || i }/users")
       postUserMigration: bilby.bind(http.post)(http, (i) -> "/api/v1/users/#{ i.user_id || i }/content_migrations")
-      # TODO: postUserFile
+      postUserFile: bilby.bind(http.postUrlEncoded)(http, (i) -> "/api/v1/users/#{ i.user_id || i }/files")
       putUser: bilby.bind(http.put)(http, (i) -> "/api/v1/users/#{ i.user_id || i }")
       putUserCustom: bilby.bind(http.put)(http, (i) -> "/api/v1/users/#{ i.user_id } /custom_data/#{ i.scope }")
       putUserMigration: bilby.bind(http.put)(http, (i) -> "/api/v1/users/#{ i.user_id }/content_migrations/#{ i.migration_id }")

@@ -32,6 +32,8 @@ httpClosure = (@baseUrl, @token) ->
 
   post: (path, interpolate, json, query) -> @withBodyJson('post')(path(interpolate), json, query)
 
+  postUrlEncoded: (path, interpolate, map, query) -> @withBodyUrlEncoded('post')(path(interpolate), map, query)
+
   put: (path, interpolate, json, query) -> @withBodyJson('put')(path(interpolate), json, query)
 
   withoutBodyJson: (verb) -> (path, query) ->
@@ -43,6 +45,27 @@ httpClosure = (@baseUrl, @token) ->
         'User-Agent': 'canvas-lms.js'
       method: verb
       url: baseUrl + path + http.querystring(query)
+
+    qio.request(request)
+      .then((_) -> _.body.read())
+      .then((_) -> deferred.resolve(http.parse(_.toString())))
+      .catch((_) -> deferred.reject(_))
+      .done()
+
+    deferred.promise
+
+  withBodyUrlEncoded: (verb) -> (path, map, query) ->
+    deferred = q.defer()
+    request =
+      agent: @agent
+      charset: 'UTF-8'
+      headers:
+        'Authorization': 'Bearer ' + token
+        'Content-Type': 'application/x-www-form-urlencoded'
+        'User-Agent': 'canvas-lms.js'
+      method: verb
+      url: baseUrl + path + http.querystring(query)
+      body: [encode.url(map)]
 
     qio.request(request)
       .then((_) -> _.body.read())

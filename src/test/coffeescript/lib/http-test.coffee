@@ -54,6 +54,21 @@ describe 'http.post()', ->
         (r) -> r.id.should.be.above(0)
       )).done(-> done())
 
+describe 'http.postUrlEncoded()', ->
+
+  it 'should work with a single record', (done) ->
+    upload =
+      name: 'upload.jpg'
+      size: '1024'
+      content_type: 'image/jpeg'
+      parent_folder_path: 'my_files/upload'
+
+    http.postUrlEncoded(((i) -> "/api/v1/users/self/files"), null, upload)
+      .then((_) -> _.fold(
+        (l) -> should.fail(l)
+        (r) -> r.upload_url.length.should.be.above(0)
+      )).done(-> done())
+
 describe 'http.put()', ->
 
   it 'should work with a single record', (done) ->
