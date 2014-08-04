@@ -26,15 +26,15 @@ http =
 httpClosure = (@baseUrl, @token) ->
   agent: new Agent.Secure()
 
-  delete: (path, interpolate, query) -> @withoutBody('delete')(path(interpolate), query)
+  delete: (path, interpolate, query) -> @withoutBodyJson('delete')(path(interpolate), query)
 
-  get: (path, interpolate, query) -> @withoutBody('get')(path(interpolate), query)
+  get: (path, interpolate, query) -> @withoutBodyJson('get')(path(interpolate), query)
 
-  post: (path, interpolate, json, query) -> @withBody('post')(path(interpolate), json, query)
+  post: (path, interpolate, json, query) -> @withBodyJson('post')(path(interpolate), json, query)
 
-  put: (path, interpolate, json, query) -> @withBody('put')(path(interpolate), json, query)
+  put: (path, interpolate, json, query) -> @withBodyJson('put')(path(interpolate), json, query)
 
-  withoutBody: (verb) -> (path, query) ->
+  withoutBodyJson: (verb) -> (path, query) ->
     deferred = q.defer()
     request =
       agent: @agent
@@ -52,7 +52,7 @@ httpClosure = (@baseUrl, @token) ->
 
     deferred.promise
 
-  withBody: (verb) -> (path, json, query) ->
+  withBodyJson: (verb) -> (path, json, query) ->
     deferred = q.defer()
     jsonString = JSON.stringify(json)
     request =
