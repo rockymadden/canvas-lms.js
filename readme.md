@@ -1,7 +1,7 @@
 #canvas-lms.js [![Build Status](https://travis-ci.org/rockymadden/canvas-lms.js.png?branch=master)](http://travis-ci.org/rockymadden/canvas-lms.js)
-Functional Node wrapper for the open source Canvas LMS REST API. All REST functions are supported via the lower-level
-[http closure](https://github.com/rockymadden/canvas-lms.js/blob/master/src/main/coffeescript/lib/http.coffee). Many
-REST functions are also supported via the higher-level
+Functional Node wrapper for the open source Canvas LMS REST API. All REST calls are supported via the lower-level
+[http closure](https://github.com/rockymadden/canvas-lms.js/blob/master/src/main/coffeescript/lib/http.coffee).
+Many are also supported via the higher-level
 [client closure](https://github.com/rockymadden/canvas-lms.js/tree/master/src/main/coffeescript/lib/client.coffee),
 which makes interaction with Canvas as easy as possible.
 
