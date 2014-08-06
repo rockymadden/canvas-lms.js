@@ -29,3 +29,9 @@ describe 'client.withSession()', ->
         .then((id) -> session.deleteUser({account_id: 1, user_id: id}))
         .done(-> done())
     )
+
+  it 'should work', (done) ->
+    client.withSession((session) ->
+      session.getUserLogins('self')
+        .done(-> done())
+    )
