@@ -26,5 +26,5 @@
   "name": "canvas-lms.js",
   "repository": {"type": "git", "url": "git://github.com/rockymadden/canvas-lms.js.git"},
   "scripts": {"prepublish": "grunt"},
-  "version": "0.3.0"
+  "version": "0.4.0"
 }
