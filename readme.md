@@ -21,7 +21,7 @@ dependency in your package.json file:
 
 ```javascript
 "dependencies": {
-  "canvas-lms.js": "0.2.x"
+  "canvas-lms.js": "0.3.x"
 }
 ```
 
