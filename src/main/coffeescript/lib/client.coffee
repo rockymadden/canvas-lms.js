@@ -27,6 +27,8 @@ clientClosure = (@baseUrl, @token) ->
       # Course functions.
       deleteCourse: bilby.bind(http.delete)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }")
       deleteCourseEnrollment: bilby.bind(http.delete)(http, (i) -> "/api/v1/courses/#{ i.course_id }/enrollments/#{ i.enrollment_id }")
+      deleteCourseModule: bilby.bind(http.delete)(http, (i) -> "/api/v1/courses/#{ i.course_id }/modules/#{ i.module_id }")
+      deleteCourseModuleItem: bilby.bind(http.delete)(http, (i) -> "/api/v1/courses/#{ i.course_id }/modules/#{ i.module_id }/items/#{ i.item_id }")
       getCourse: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }")
       getCourses: bilby.bind(http.get)(http, (i) -> "/api/v1/accounts/#{ i.account_id || i }/courses")
       getCourseEnrollments: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/enrollments")
@@ -34,6 +36,10 @@ clientClosure = (@baseUrl, @token) ->
       getCourseFilesQuota: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/files/quota")
       getCourseMigration: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id }/content_migrations/#{ i.migration_id }")
       getCourseMigrations: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/content_migrations")
+      getCourseModule: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/modules/#{ i.module_id }")
+      getCourseModules: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/modules")
+      getCourseModuleItem: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id }/modules/#{ i.module_id }/items/#{ i.item_id }")
+      getCourseModuleItems: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id }/modules/#{ i.module_id }/items")
       getCourseSettings: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/settings")
       getCourseTodos: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/todo")
       getCourseUser: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id }/users/#{ i.user_id }")
@@ -42,11 +48,15 @@ clientClosure = (@baseUrl, @token) ->
       postCourseEnrollment: bilby.bind(http.post)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/enrollments")
       postCourseFile: bilby.bind(http.postUrlEncoded)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/files")
       postCourseMigration: bilby.bind(http.post)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/content_migrations")
+      postCourseModule: bilby.bind(http.post)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/modules")
+      postCourseModuleItem: bilby.bind(http.post)(http, (i) -> "/api/v1/courses/#{ i.course_id }/modules/#{ i.module_id }/items")
       putCourse: bilby.bind(http.put)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }")
       putCourseMigration: bilby.bind(http.put)(http, (i) -> "/api/v1/courses/#{ i.course_id }/content_migrations/#{ i.migration_id }")
       putCourseSettings: bilby.bind(http.put)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/settings")
+      putCourseModule: bilby.bind(http.put)(http, (i) -> "/api/v1/courses/#{ i.course_id }/modules/#{ i.module_id }")
+      putCourseModuleItem: bilby.bind(http.put)(http, (i) -> "/api/v1/courses/#{ i.course_id }/modules/#{ i.module_id }/items/#{ i.item_id }")
 
-      # File fucntions.
+      # File functions.
       deleteFile: bilby.bind(http.delete)(http, (i) -> "/api/v1/files/#{ i.file_id || i }")
       getFile: bilby.bind(http.get)(http, (i) -> "/api/v1/files/#{ i.file_id || i }")
       putFile: bilby.bind(http.put)(http, (i) -> "/api/v1/files/#{ i.file_id || i }")
