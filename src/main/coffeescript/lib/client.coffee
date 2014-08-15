@@ -27,6 +27,7 @@ clientClosure = (@baseUrl, @token) ->
       # Course functions.
       deleteCourse: bilby.bind(http.delete)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }")
       deleteCourseAssignment: bilby.bind(http.delete)(http, (i) -> "/api/v1/courses/#{ i.course_id }/assignments/#{ i.assignment_id }")
+      deleteCourseAssignmentGroup: bilby.bind(http.delete)(http, (i) -> "/api/v1/courses/#{ i.course_id }/assignment_groups/#{ i.assignment_group_id }")
       deleteCourseEnrollment: bilby.bind(http.delete)(http, (i) -> "/api/v1/courses/#{ i.course_id }/enrollments/#{ i.enrollment_id }")
       deleteCourseExternalTool: bilby.bind(http.delete)(http, (i) -> "/api/v1/courses/#{ i.course_id }/external_tools/#{ i.external_tool_id }")
       deleteCourseModule: bilby.bind(http.delete)(http, (i) -> "/api/v1/courses/#{ i.course_id }/modules/#{ i.module_id }")
@@ -35,6 +36,8 @@ clientClosure = (@baseUrl, @token) ->
       getCourses: bilby.bind(http.get)(http, (i) -> "/api/v1/accounts/#{ i.account_id || i }/courses")
       getCourseAssignment: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/assignments/#{ i.assignment_id }")
       getCourseAssignments: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/assignments")
+      getCourseAssignmentGroup: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/assignment_groups/#{ i.assignment_group_id }")
+      getCourseAssignmentGroups: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/assignment_groups"
       getCourseEnrollments: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/enrollments")
       getCourseExternalTool: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/external_tools/#{ i.external_tool_id }")
       getCourseExternalTools: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/external_tools")
@@ -52,6 +55,7 @@ clientClosure = (@baseUrl, @token) ->
       getCourseUsers: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/users")
       postCourse: bilby.bind(http.post)(http, (i) -> "/api/v1/accounts/#{ i.account_id || i }/courses")
       postCourseAssignment: bilby.bind(http.post)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/assignments")
+      postCourseAssignmentGroup: bilby.bind(http.post)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/assignment_groups")
       postCourseEnrollment: bilby.bind(http.post)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/enrollments")
       postCourseExternalTool: bilby.bind(http.post)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/external_tools")
       postCourseFile: bilby.bind(http.postUrlEncoded)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/files")
@@ -60,6 +64,7 @@ clientClosure = (@baseUrl, @token) ->
       postCourseModuleItem: bilby.bind(http.post)(http, (i) -> "/api/v1/courses/#{ i.course_id }/modules/#{ i.module_id }/items")
       putCourse: bilby.bind(http.put)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }")
       putCourseAssignment: bilby.bind(http.put)(http, (i) -> "/api/v1/courses/#{ i.course_id }/assignments/#{ i.assignment_id }")
+      putCourseAssignmentGroup: bilby.bind(http.put)(http, (i) -> "/api/v1/courses/#{ i.course_id }/assignment_groups/#{ i.assignment_group_id }")
       putCourseExternalTool: bilby.bind(http.put)(http, (i) -> "/api/v1/courses/#{ i.course_id }/external_tools/#{ i.external_tool_id }")
       putCourseMigration: bilby.bind(http.put)(http, (i) -> "/api/v1/courses/#{ i.course_id }/content_migrations/#{ i.migration_id }")
       putCourseSettings: bilby.bind(http.put)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/settings")
