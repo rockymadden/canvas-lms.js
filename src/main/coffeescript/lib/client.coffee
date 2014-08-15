@@ -37,7 +37,7 @@ clientClosure = (@baseUrl, @token) ->
       getCourseAssignment: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/assignments/#{ i.assignment_id }")
       getCourseAssignments: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/assignments")
       getCourseAssignmentGroup: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/assignment_groups/#{ i.assignment_group_id }")
-      getCourseAssignmentGroups: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/assignment_groups"
+      getCourseAssignmentGroups: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/assignment_groups")
       getCourseEnrollments: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/enrollments")
       getCourseExternalTool: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/external_tools/#{ i.external_tool_id }")
       getCourseExternalTools: bilby.bind(http.get)(http, (i) -> "/api/v1/courses/#{ i.course_id || i }/external_tools")
