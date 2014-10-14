@@ -11,6 +11,7 @@ clientClosure = (@baseUrl, @token) ->
       getAccount: bilby.bind(http.get)(http, (i) -> "/api/v1/accounts/#{ i.account_id || i }")
       getAccountCourse: bilby.bind(http.get)(http, (i) -> "/api/v1/accounts/#{ i.account_id }/courses/#{ i.course_id }")
       getAccountCourses: bilby.bind(http.get)(http, (i) -> "/api/v1/accounts/#{ i.account_id || i }/courses")
+      getAccountEnrollment: bilby.bind(http.get)(http, (i) -> "/api/v1/accounts/#{ i.account_id }/enrollments/#{ i.enrollment_id }")
       getAccountMigration: bilby.bind(http.get)(http, (i) -> "/api/v1/accounts/#{ i.account_id }/content_migrations/#{ i.migration_id }")
       getAccountMigrations: bilby.bind(http.get)(http, (i) -> "/api/v1/accounts/#{ i.account_id || i }/content_migrations")
       getAccountSubs: bilby.bind(http.get)(http, (i) -> "/api/v1/accounts/#{ i.account_id || i }/sub_accounts")
