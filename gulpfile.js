@@ -1,9 +1,11 @@
 var coffee = require('gulp-coffee');
 var del = require('del');
 var gulp = require('gulp');
+var mocha = require('gulp-mocha');
 var sourcemaps = require('gulp-sourcemaps');
 var paths = {
   build: ['build'],
+  builtTests: ['build/test/**/*.js'],
   sources: ['src/coffeescript/**/*.coffee'],
   tests: ['test/coffeescript/**/*.coffee']
 };
@@ -22,7 +24,7 @@ gulp.task('sources', ['clean'], function() {
 });
 
 gulp.task('test', ['sources', 'tests'], function() {
-  return gulp.src(['build/test/**/*.js'], {read: false}).pipe(mocha({reporter: 'spec', timeout: 32000}));
+  return gulp.src(paths.builtTests, {read: false}).pipe(mocha({reporter: 'spec', timeout: 32000}));
 });
 
 gulp.task('tests', ['clean'], function() {

@@ -1,4 +1,4 @@
-httpClosure = require('./http')
+httpClosure = require('../../lib/http')
 lazy = require('lazy.js')
 should = require('should')
 
@@ -6,7 +6,6 @@ http = httpClosure(process.env.CANVASLMSJS_BASEURL, process.env.CANVASLMSJS_TOKE
 random = -> lazy.generate((-> Math.floor(Math.random() * 10))).take(32).toString('')
 
 describe 'http.delete()', ->
-
   it 'should work with a single record', (done) ->
     create =
       user: name: 'http create'
@@ -26,7 +25,6 @@ describe 'http.delete()', ->
       )).done(-> done())
 
 describe 'http.get()', ->
-
   it 'should work with multiple records', (done) ->
     http.get(-> "/api/v1/accounts")
       .then((_) -> _.fold(
@@ -42,7 +40,6 @@ describe 'http.get()', ->
       )).done(-> done())
 
 describe 'http.post()', ->
-
   it 'should work with a single record', (done) ->
     create =
       user: name: 'http create'
@@ -55,7 +52,6 @@ describe 'http.post()', ->
       )).done(-> done())
 
 describe 'http.postUrlEncoded()', ->
-
   it 'should work with a single record', (done) ->
     upload =
       name: 'upload.jpg'
@@ -70,7 +66,6 @@ describe 'http.postUrlEncoded()', ->
       )).done(-> done())
 
 describe 'http.put()', ->
-
   it 'should work with a single record', (done) ->
     create =
       user: name: 'http create'

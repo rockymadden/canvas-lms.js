@@ -1,4 +1,4 @@
-clientClosure = require('./client')
+clientClosure = require('../../lib/client')
 lazy = require('lazy.js')
 should = require('should')
 
@@ -6,7 +6,6 @@ client = clientClosure(process.env.CANVASLMSJS_BASEURL, process.env.CANVASLMSJS_
 random = -> lazy.generate((-> Math.floor(Math.random() * 10))).take(32).toString('')
 
 describe 'client.withSession()', ->
-
   it 'should work', (done) ->
     client.withSession((session) ->
       session.getAccounts()
