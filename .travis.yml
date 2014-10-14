@@ -2,7 +2,7 @@ language: node_js
 node_js:
   - "0.10"
 script:
-  - "grunt test"
+  - "gulp test"
 env:
   global:
     - secure: "ImdX0V/gpdPmmkktYi2yNR4t+KLaa8B6q6uXvSmoQtfKy96OuYySUwDHpttlN4+HTVS38qF5tt9J2BLROXSyC2c/ssEpKDATuHzGJy7/pLuWLAUlIlIWCA8vGLa46TtM7fceEXz7bLEy6cjcJ9Kj9oz91fVGkjckQ0PUqHLTO5k="
